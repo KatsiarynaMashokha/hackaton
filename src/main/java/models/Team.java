@@ -11,11 +11,13 @@ public class Team {
     private String description;
     private int numberOfMembers;
     private ArrayList<Member> attendees = new ArrayList<Member>();
+    private static ArrayList<Team> listOfTeams = new ArrayList<>();
 
     public Team(String teamName, String description, int numberOfMembers) {
         this.teamName = teamName;
         this.description = description;
         this.numberOfMembers = numberOfMembers;
+        listOfTeams.add(this);
     }
 
     public String getTeamName() {
@@ -33,5 +35,13 @@ public class Team {
 
     public ArrayList<Member> getAttendees() {
         return attendees;
+    }
+
+    public int getNumberOfMembers() {
+        return numberOfMembers;
+    }
+
+    public static ArrayList<Team> getListOfTeams() {
+        return listOfTeams;
     }
 }

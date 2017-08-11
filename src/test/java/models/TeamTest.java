@@ -22,7 +22,7 @@ public class TeamTest {
 
     // helper method to create a new team
     public Team createTeam() {
-        return new Team("Sharks", "Harvard computer science second year students");
+        return new Team("Sharks", "Harvard computer science second year students", 6);
     }
 
     // helper method to create a new team member
