@@ -9,6 +9,8 @@ public class Member {
     private int age;
 
     public Member(String name, int age) {
+        this.name = name;
+        this.age = age;
 
     }
 
