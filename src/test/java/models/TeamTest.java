@@ -20,10 +20,22 @@ public class TeamTest {
 
     }
 
+    // helper method to create a new team
+    public Team createTeam() {
+        return new Team("Sharks", "Harvard computer science second year students");
+    }
+
     @Test
     public void TeamIntsantiatesCorrectly() {
-        Team testTeam = new Team();
+        Team testTeam = createTeam();
         assertTrue(testTeam instanceof Team);
+    }
+
+    @Test
+    public void GetTeamName_GetDescriptionCorrectTeamNameAndDescriptionOfTheTeamAreReturned_teamName_description() {
+        Team testTeam = createTeam();
+        assertEquals("Sharks", testTeam.getTeamName());
+        assertEquals("Harvard computer science second year students", testTeam.getDescription);
     }
 
 
