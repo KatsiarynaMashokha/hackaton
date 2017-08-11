@@ -24,6 +24,10 @@ public class Team {
         return description;
     }
 
+    public ArrayList<Member> addMember(Member newMember) {
+       attendees.add(newMember);
+       return attendees;
+    }
 
     public ArrayList<Member> getAttendees() {
         return attendees;
