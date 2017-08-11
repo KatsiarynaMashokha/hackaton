@@ -26,8 +26,4 @@ public class MemberTest {
         assertEquals("Anica White", testMember.getName());
         assertEquals(16, testMember.getAge());
     }
-
-
-
-
 }
