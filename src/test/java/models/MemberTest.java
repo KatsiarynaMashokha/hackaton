@@ -20,4 +20,13 @@ public class MemberTest {
         assertTrue(testMember instanceof Member);
     }
 
+    @Test
+    public void GetName_GetAgeCorrectNameAndAgeOfTheMemberAreReturned_name_age() {
+        Member testMember = createMember();
+        assertEquals("Anica White", testMember.getName());
+        assertEquals(16, testMember.getAge());
+    }
+
+
+
 }
