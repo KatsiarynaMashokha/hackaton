@@ -20,6 +20,12 @@ public class TeamTest {
 
     }
 
+    @Test
+    public void TeamIntsantiatesCorrectly() {
+        Team testTeam = new Team();
+        assertTrue(testTeam instanceof Team);
+    }
+
 
 
 

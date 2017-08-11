@@ -1,5 +1,7 @@
 package models;
 
+import java.util.UUID;
+
 /**
  * Created by katsiarynamashokha on 8/11/17.
  */
@@ -11,6 +13,7 @@ public class Member {
     public Member(String name, int age) {
         this.name = name;
         this.age = age;
+        this.id = UUID.randomUUID().toString();
 
     }
 
