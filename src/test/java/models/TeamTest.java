@@ -35,7 +35,7 @@ public class TeamTest {
     public void GetTeamName_GetDescriptionCorrectTeamNameAndDescriptionOfTheTeamAreReturned_teamName_description() {
         Team testTeam = createTeam();
         assertEquals("Sharks", testTeam.getTeamName());
-        assertEquals("Harvard computer science second year students", testTeam.getDescription);
+        assertEquals("Harvard computer science second year students", testTeam.getDescription());
     }
 
 

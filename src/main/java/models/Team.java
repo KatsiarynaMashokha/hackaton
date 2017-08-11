@@ -12,6 +12,15 @@ public class Team {
     private ArrayList<Member> attendees = new ArrayList<Member>();
 
     public Team(String teamName, String description) {
+        this.teamName = teamName;
+        this.description = description;
+    }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }
