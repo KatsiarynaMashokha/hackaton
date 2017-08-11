@@ -23,4 +23,9 @@ public class Team {
     public String getDescription() {
         return description;
     }
+
+
+    public ArrayList<Member> getAttendees() {
+        return attendees;
+    }
 }

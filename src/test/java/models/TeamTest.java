@@ -25,6 +25,11 @@ public class TeamTest {
         return new Team("Sharks", "Harvard computer science second year students");
     }
 
+    // helper method to create a new team member
+    public Member createMember() {
+        return new Member("Anica White", 16);
+    }
+
     @Test
     public void TeamIntsantiatesCorrectly() {
         Team testTeam = createTeam();
@@ -36,6 +41,14 @@ public class TeamTest {
         Team testTeam = createTeam();
         assertEquals("Sharks", testTeam.getTeamName());
         assertEquals("Harvard computer science second year students", testTeam.getDescription());
+    }
+
+    @Test
+    public void AddMember_makeSureNewMembersCanBeAddedToTeam_arrayOfMembers() {
+        Team testTeam = createTeam();
+        testTeam.addMember(createMember());
+        testTeam.addMember(new Member("John Grey", 17));
+        assertEquals(2, testTeam.getAttendees().size());
     }
 
 
