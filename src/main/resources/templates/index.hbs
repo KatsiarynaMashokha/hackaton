@@ -2,9 +2,9 @@
 
     <div class="jumbotron">Hackaton Page</div>
 
-    {{#if allTeams}}
+    {{#if teams}}
         <h2>Here is the list of registered teams:</h2>
-        {{#each allTeams}}
+        {{#each teams}}
             <p>Team name: {{teamName}}</p>
             <p>Team description: {{description}}</p>
             <a href="/teams/{{id}}">See team information</a>

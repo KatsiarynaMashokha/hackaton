@@ -1,6 +1,18 @@
 {{#partial "content"}}
-
-    <p>Add Team Members:</p>
+    <p>Enter new team member information:</p>
+    <form action="/teams/{{currentTeam.id}}" method="post">
+        <div class="form-group">
+            <p>Enter name:</p>
+            <label for="memberName"></label>
+            <input id="memberName" name="memberName" type="text">
+        </div>
+        <div class="form-group">
+            <p>Enter age:</p>
+            <label for="memberAge"></label>
+            <input id="memberAge" name="memberAge" type="text">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Member</button>
+    </form>
 {{/partial}}
 
 {{> layout.hbs}}

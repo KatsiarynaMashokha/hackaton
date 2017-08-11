@@ -1,11 +1,25 @@
 {{#partial "content"}}
 
     <h3>Team details:</h3>
-    <p>Team name: {{teamToEdit.teamName}}</p>
-    <p>Team description: {{teamToEdit.description}}</p>
-    <p>Players:</p>
+    <p>Team name: {{currentTeam.teamName}}</p>
+    <p>Team description: {{currentTeam.description}}</p>
 
-    <a href="/teams/{{teamToEdit.id}}/edit">Click here to edit team info</a>
+    {{#if currentTeam.attendees}}
+        <p>Members:</p>
+        {{#each currentTeam.attendees}}
+            <ul>
+                <li><p>Name: {{name}}<br>Age: {{age}}</p></li>
+            </ul>
+        {{/each}}
+    {{else}}
+        <p>No team members yet!</p>
+    {{/if}}
+
+
+
+
+    <a href="/teams/{{currentTeam.id}}/add_member">Add a new team member</a>
+    <a href="/teams/{{currentTeam.id}}/edit">Click here to edit team info</a>
 {{/partial}}
 
 {{> layout.hbs}}
