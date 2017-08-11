@@ -1,0 +1,11 @@
+{{#partial "content"}}
+
+    <h3>Team details:</h3>
+    <p>Team name: {{teamToEdit.teamName}}</p>
+    <p>Team description: {{teamToEdit.description}}</p>
+    <p>Players:</p>
+
+    <a href="/teams/{{teamToEdit.id}}/edit">Click here to edit team info</a>
+{{/partial}}
+
+{{> layout.hbs}}

@@ -7,17 +7,24 @@ import java.util.Map;
  * Created by katsiarynamashokha on 8/11/17.
  */
 public class Team {
+    private int id;
     private String teamName;
     private String description;
     private int numberOfMembers;
-    private ArrayList<Member> attendees = new ArrayList<Member>();
+    private static ArrayList<Member> attendees = new ArrayList<Member>();
     private static ArrayList<Team> listOfTeams = new ArrayList<>();
 
-    public Team(String teamName, String description, int numberOfMembers) {
+    public Team(String teamName, String description) {
+        this.id = listOfTeams.size();
         this.teamName = teamName;
         this.description = description;
-        this.numberOfMembers = numberOfMembers;
+        this.numberOfMembers = 7;
         listOfTeams.add(this);
+    }
+
+
+    public int getId() {
+        return id;
     }
 
     public String getTeamName() {
@@ -33,7 +40,7 @@ public class Team {
        return attendees;
     }
 
-    public ArrayList<Member> getAttendees() {
+    public static ArrayList<Member> getAttendees() {
         return attendees;
     }
 
@@ -43,5 +50,9 @@ public class Team {
 
     public static ArrayList<Team> getListOfTeams() {
         return listOfTeams;
+    }
+
+    public static Team findById(int id) {
+        return listOfTeams.get(id - 1);
     }
 }

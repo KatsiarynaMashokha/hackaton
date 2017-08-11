@@ -12,30 +12,42 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("public");
 
-        // show a form to add a new team
-        get("/add_new_team", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "form.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        // homepage where all the teams are displayed
+        //show a home page with all posts
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            ArrayList<Team> teams = Team.getListOfTeams();
+            model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        // process add a new team form
+
+        // show a form for adding a new team
+        get("/add_new_team", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
+        // process a new form
         post("/add_new_team", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newTeamName = request.queryParams("teamName");
             String newTeamDescription = request.queryParams("teamDescription");
-            int newTeamSize = Integer.parseInt(request.queryParams("numberOfMembers"));
-            Team newTeam = new Team(newTeamName, newTeamDescription, newTeamSize);
-            model.put("newTeam", newTeam);
-            return new ModelAndView(model, "addTeamMembers.hbs");
+            new Team(newTeamName, newTeamDescription);
+            ArrayList<Team> allTeams = Team.getListOfTeams();
+            model.put("allTeams", allTeams);
+            return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        // see an individual team details page
+        get("/teams/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int indexOfTeamToEdit = Integer.parseInt(request.params("id"));
+            Team editTeam = Team.findById(indexOfTeamToEdit);
+            model.put("teamToEdit", editTeam);
+            return new ModelAndView(model, "team-information.hbs");
+        }, new HandlebarsTemplateEngine());
 
 
     }
