@@ -42,9 +42,11 @@ public class App {
         get("/teams/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int indexOfTeamToEdit = Integer.parseInt(request.params("id"));
-            Team editTeam = Team.findById(indexOfTeamToEdit);
-            request.session().attribute("teamToEdit", editTeam);
-            model.put("currentTeam", editTeam);
+            Team currentTeam = Team.findById(indexOfTeamToEdit);
+            ArrayList<Member> currentTeamMembers = currentTeam.getAttendees();
+            //request.session().attribute("teamToEdit", currentTeam);
+            model.put("currentTeamMembers", currentTeamMembers);
+            model.put("currentTeam", currentTeam);
             return new ModelAndView(model, "team-information.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -54,7 +56,7 @@ public class App {
             int indexOfTeam = Integer.parseInt(request.params("id"));
             Team currentTeam = Team.findById(indexOfTeam);
             model.put("currentTeam", currentTeam);
-            return new ModelAndView(model, "addTeamMembers.hbs");
+            return new ModelAndView(model, "add-team-members.hbs");
         }, new HandlebarsTemplateEngine());
 
         // process a new form when adding a new team member
@@ -63,7 +65,9 @@ public class App {
             String memberName = request.queryParams("memberName");
             int memberAge = Integer.parseInt(request.queryParams("memberAge"));
             Member newMember = new Member(memberName, memberAge);
-            Team currentTeam = request.session().attribute("teamToEdit");
+            int indexOfTeam = Integer.parseInt(request.params("id"));
+            Team currentTeam = Team.findById(indexOfTeam);
+            //Team currentTeam = request.session().attribute("teamToEdit");
             currentTeam.addMember(newMember);
             model.put("currentTeam", currentTeam);
             return new ModelAndView(model, "team-information.hbs");
@@ -89,6 +93,18 @@ public class App {
             currentTeam.setDescription(newDescription);
             model.put("currentTeam", currentTeam);
             return new ModelAndView(model, "team-information.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // delete a team member
+        get("/members/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String idOfMemberToDelete = request.params("id");
+            int indexOfTeam = Integer.parseInt(request.params("id"));
+            Team searchTeam = Team.findById(indexOfTeam);
+            ArrayList<Member> currentTeam = searchTeam.deleteMember(idOfMemberToDelete);
+            model.put("currentTeam", currentTeam);
+            return new ModelAndView(model, "team-information.hbs");
+
         }, new HandlebarsTemplateEngine());
     }
 }

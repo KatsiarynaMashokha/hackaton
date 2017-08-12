@@ -25,4 +25,8 @@ public class Member {
     public int getAge() {
         return age;
     }
+
+    public String getId() {
+        return id;
+    }
 }

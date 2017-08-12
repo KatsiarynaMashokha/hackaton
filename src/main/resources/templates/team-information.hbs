@@ -1,25 +1,28 @@
 {{#partial "content"}}
 
     <h3>Team details:</h3>
-    <p>Team name: {{currentTeam.teamName}}</p>
-    <p>Team description: {{currentTeam.description}}</p>
+    <p class="newTeamMember">Team name: {{currentTeam.teamName}}</p>
+    <p class="newTeamMember">Team description: {{currentTeam.description}}</p>
 
     {{#if currentTeam.attendees}}
-        <p>Members:</p>
+        <p class="newTeamMember">Members:</p>
         {{#each currentTeam.attendees}}
             <ul>
-                <li><p>Name: {{name}}<br>Age: {{age}}</p></li>
+                <li>Name: {{name}}<br>Age: {{age}}</li>
             </ul>
+            <div id="removeButton">
+            <a href="/members/{{currentTeamMembers.id}}/delete"><button class="astext">Click here to remove this team member</button></a>
+            </div>
         {{/each}}
+        <hr>
     {{else}}
-        <p>No team members yet!</p>
+        <p class="newTeamMember"No team members yet!></p>
     {{/if}}
-
-
-
-
-    <a href="/teams/{{currentTeam.id}}/add_member">Add a new team member</a>
-    <a href="/teams/{{currentTeam.id}}/edit">Click here to edit team info</a>
+    <div class="editInfo">
+       <a href="/teams/{{currentTeam.id}}/add_member"><button class="astext">Add a new team member</button></a>
+        <a href="/teams/{{currentTeam.id}}/edit"><button class="astext">Click here to edit team info</button></a>
+    </div>
+        <hr>
 {{/partial}}
 
 {{> layout.hbs}}

@@ -3,15 +3,15 @@
     <div class="jumbotron">Hackaton Page</div>
 
     {{#if teams}}
-        <h2>Here is the list of registered teams:</h2>
+        <h3>Here is the list of registered teams:</h3>
         {{#each teams}}
-            <p>Team name: {{teamName}}</p>
-            <p>Team description: {{description}}</p>
+            <p class="newTeamMember">Team name: {{teamName}}</p>
+            <p class="newTeamMember">Team description: {{description}}</p>
             <a href="/teams/{{id}}">See team information</a>
             <hr>
         {{/each}}
     {{else}}
-        <p>No team registered yet!</p>
+        <p>No teams registered yet!</p>
     {{/if}}
 
 {{/partial}}

@@ -1,15 +1,15 @@
 {{#partial "content"}}
-    <p>Enter new team member information:</p>
+    <p class="newTeamHeader">Enter new team member information:</p>
     <form action="/teams/{{currentTeam.id}}" method="post">
         <div class="form-group">
-            <p>Enter name:</p>
+            <p class="newTeamMember">Enter name:</p>
             <label for="memberName"></label>
             <input id="memberName" name="memberName" type="text">
         </div>
         <div class="form-group">
-            <p>Enter age:</p>
+            <p class="newTeamMember">Enter age:</p>
             <label for="memberAge"></label>
-            <input id="memberAge" name="memberAge" type="text">
+            <input id="memberAge" name="memberAge" type="number">
         </div>
         <button type="submit" class="btn btn-primary">Add Member</button>
     </form>

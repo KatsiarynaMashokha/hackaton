@@ -1,0 +1,73 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(#000000, #53346D);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.jumbotron {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+    background: inherit;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+   }
+
+ p {
+   color: white;
+   font-size: 25px;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+   }
+
+  .nav {
+   font-size: 18px;
+   text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+   margin-bottom: 25px;
+  }
+
+  .btn {
+   text-align:center;
+   margin-top: 60px;
+  }
+
+  h4, h3 {
+  color: white;
+  margin-bottom: 60px;
+  margin-top: 60px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+  li, .newTeamMember {
+  color: white;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+  font-size: 18px;
+  }
+
+  a {
+  margin-right: 20px;
+  }
+
+  .newTeamHeader {
+  margin-bottom: 60px;
+  margin-top: 30px;
+  }
+
+  .editInfo {
+  margin-top: 20px;
+  }
+
+  hr {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  }
+
+  #removeButton {
+   margin-bottom: 20px;
+  }
+
