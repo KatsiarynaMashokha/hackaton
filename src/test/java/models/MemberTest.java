@@ -26,4 +26,10 @@ public class MemberTest {
         assertEquals("Anica White", testMember.getName());
         assertEquals(16, testMember.getAge());
     }
+
+    @Test
+    public void GetId_IdIsGettingAssigned_returnsId() {
+        Member testMember = createMember();
+        System.out.println(testMember.getId());
+    }
 }

@@ -10,7 +10,7 @@ public class Team {
     private int id;
     private String teamName;
     private String description;
-    private ArrayList<Member> attendees = new ArrayList<>();
+    public ArrayList<Member> attendees = new ArrayList<>();
     private static ArrayList<Team> listOfTeams = new ArrayList<>();
 
     public Team(String teamName, String description) {
@@ -71,6 +71,10 @@ public class Team {
         Member member = findById(memberId);
         attendees.remove(member);
         return attendees;
+    }
+
+    public void clearAll() {
+        attendees.clear();
     }
 
 }

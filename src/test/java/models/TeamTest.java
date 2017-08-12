@@ -10,14 +10,10 @@ import static org.junit.Assert.*;
  * Created by katsiarynamashokha on 8/11/17.
  */
 public class TeamTest {
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
     @After
-    public void tearDown() throws Exception {
-
+    public void setUp() throws Exception {
+        Team team = createTeam();
+        team.clearAll();
     }
 
     // helper method to create a new team
@@ -31,7 +27,7 @@ public class TeamTest {
     }
 
     @Test
-    public void TeamIntsantiatesCorrectly() {
+    public void TeamIntsantiatesCorrectly_true() {
         Team testTeam = createTeam();
         assertTrue(testTeam instanceof Team);
     }
@@ -51,7 +47,27 @@ public class TeamTest {
         assertEquals(2, testTeam.getAttendees().size());
     }
 
+    @Test
+    public void GetId_TeamIdIsReturnedCorrectly_ID() {
+        Team testTeam = createTeam();
+        assertEquals(0, testTeam.getId());
+    }
 
+    @Test
+    public void FindById_TheSearchedMemberIsReturned_Member() {
+        Team testTeam = createTeam();
+        Member memberOne = createMember();
+        Member memberTwo = new Member("Allison Brown", 17);
+        testTeam.addMember(memberOne);
+        testTeam.addMember(memberTwo);
+        assertEquals(memberOne, testTeam.findById(memberOne.getId()));
+    }
 
-
+    @Test
+    public void DeleteMember_memberIsRemoved() {
+        Team testTeam = createTeam();
+        Member testMember = createMember();
+        testTeam.addMember(testMember);
+        assertEquals(0,  testTeam.deleteMember(testMember.getId()).size());
+    }
 }
