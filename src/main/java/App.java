@@ -68,5 +68,13 @@ public class App {
             model.put("currentTeam", currentTeam);
             return new ModelAndView(model, "team-information.hbs");
         }, new HandlebarsTemplateEngine());
+
+        // show a form to edit a team information
+        get("/teams/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Team currentTeam = request.session().attribute("teamToEdit");
+            model.put("teamToEdit", currentTeam);
+            return new ModelAndView(model, "form.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
