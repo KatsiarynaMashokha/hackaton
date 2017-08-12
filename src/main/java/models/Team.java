@@ -10,7 +10,6 @@ public class Team {
     int id;
     private String teamName;
     private String description;
-    private int numberOfMembers;
     ArrayList<Member> attendees = new ArrayList<>();
     private static ArrayList<Team> listOfTeams = new ArrayList<>();
 
@@ -18,7 +17,6 @@ public class Team {
         this.id = listOfTeams.size();
         this.teamName = teamName;
         this.description = description;
-        this.numberOfMembers = 7;
         listOfTeams.add(this);
     }
 
@@ -43,15 +41,19 @@ public class Team {
         return attendees;
     }
 
-    public int getNumberOfMembers() {
-        return numberOfMembers;
-    }
-
     public static ArrayList<Team> getListOfTeams() {
         return listOfTeams;
     }
 
     public static Team findById(int id) {
         return listOfTeams.get(id);
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

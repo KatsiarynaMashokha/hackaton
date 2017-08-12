@@ -72,9 +72,23 @@ public class App {
         // show a form to edit a team information
         get("/teams/:id/edit", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            Team currentTeam = request.session().attribute("teamToEdit");
-            model.put("teamToEdit", currentTeam);
-            return new ModelAndView(model, "form.hbs");
+            int indexOfTeam = Integer.parseInt(request.params("id"));
+            Team currentTeam = Team.findById(indexOfTeam);
+            model.put("currentTeam", currentTeam);
+            return new ModelAndView(model, "edit-team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        // edit a team information
+        post("/teams/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = request.queryParams("teamName");
+            String newDescription = request.queryParams("teamDescription");
+            int indexOfTeam = Integer.parseInt(request.params("id"));
+            Team currentTeam = Team.findById(indexOfTeam);
+            currentTeam.setTeamName(newName);
+            currentTeam.setDescription(newDescription);
+            model.put("currentTeam", currentTeam);
+            return new ModelAndView(model, "team-information.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
