@@ -1,7 +1,6 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Created by katsiarynamashokha on 8/11/17.
@@ -60,7 +59,7 @@ public class Team {
     public Member findById(String memberId) {
         Member result = null;
         for (Member member : attendees) {
-            if (member.getId().equals(memberId)) {
+            if (member.getMemberId().equals(memberId)) {
                 return member;
             }
         }
@@ -76,5 +75,4 @@ public class Team {
     public void clearAll() {
         attendees.clear();
     }
-
 }

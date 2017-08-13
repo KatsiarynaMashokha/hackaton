@@ -1,7 +1,6 @@
 package models;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -60,7 +59,7 @@ public class TeamTest {
         Member memberTwo = new Member("Allison Brown", 17);
         testTeam.addMember(memberOne);
         testTeam.addMember(memberTwo);
-        assertEquals(memberOne, testTeam.findById(memberOne.getId()));
+        assertEquals(memberOne, testTeam.findById(memberOne.getMemberId()));
     }
 
     @Test
@@ -68,6 +67,6 @@ public class TeamTest {
         Team testTeam = createTeam();
         Member testMember = createMember();
         testTeam.addMember(testMember);
-        assertEquals(0,  testTeam.deleteMember(testMember.getId()).size());
+        assertEquals(0,  testTeam.deleteMember(testMember.getMemberId()).size());
     }
 }

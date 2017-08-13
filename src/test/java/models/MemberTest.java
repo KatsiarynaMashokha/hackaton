@@ -30,6 +30,6 @@ public class MemberTest {
     @Test
     public void GetId_IdIsGettingAssigned_returnsId() {
         Member testMember = createMember();
-        System.out.println(testMember.getId());
+        System.out.println(testMember.getMemberId());
     }
 }

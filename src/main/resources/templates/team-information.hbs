@@ -11,7 +11,7 @@
                 <li>Name: {{name}}<br>Age: {{age}}</li>
             </ul>
             <div id="removeButton">
-            <a href="/members/{{currentTeamMembers.id}}/delete"><button class="astext">Click here to remove this team member</button></a>
+                <a href="/teams/{{currentTeam.id}}/members/{{memberId}}/delete"><button class="astext">Click here to remove this team member</button></a>
             </div>
         {{/each}}
         <hr>
