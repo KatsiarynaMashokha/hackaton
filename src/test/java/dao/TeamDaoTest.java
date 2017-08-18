@@ -71,7 +71,6 @@ public class TeamDaoTest {
         teamDao.add(testTeamTwo);
         teamDao.deleteById(testTeam.getId());
         assertEquals(1, teamDao.allTeams().size());
-
     }
 
     @Test
