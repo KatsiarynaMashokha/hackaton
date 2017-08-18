@@ -9,16 +9,13 @@ public class Team {
     private int id;
     private String teamName;
     private String description;
-    public ArrayList<Member> attendees = new ArrayList<>();
-    private static ArrayList<Team> listOfTeams = new ArrayList<>();
 
     public Team(String teamName, String description) {
-        this.id = listOfTeams.size();
         this.teamName = teamName;
         this.description = description;
-        listOfTeams.add(this);
     }
 
+    // getters
     public int getId() {
         return id;
     }
@@ -31,21 +28,10 @@ public class Team {
         return description;
     }
 
-    public ArrayList<Member> addMember(Member newMember) {
-       attendees.add(newMember);
-       return attendees;
-    }
 
-    public ArrayList<Member> getAttendees() {
-        return attendees;
-    }
-
-    public static ArrayList<Team> getListOfTeams() {
-        return listOfTeams;
-    }
-
-    public static Team findById(int id) {
-        return listOfTeams.get(id);
+    // setters
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTeamName(String teamName) {
@@ -56,23 +42,23 @@ public class Team {
         this.description = description;
     }
 
-    public Member findById(String memberId) {
-        Member result = null;
-        for (Member member : attendees) {
-            if (member.getMemberId().equals(memberId)) {
-                return member;
-            }
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        if (!teamName.equals(team.teamName)) return false;
+        return description.equals(team.description);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + teamName.hashCode();
+        result = 31 * result + description.hashCode();
         return result;
-    }
-
-    public ArrayList<Member> deleteMember(String memberId) {
-        Member member = findById(memberId);
-        attendees.remove(member);
-        return attendees;
-    }
-
-    public void clearAll() {
-        attendees.clear();
     }
 }

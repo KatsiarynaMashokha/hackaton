@@ -21,7 +21,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         // show a form for adding a new team
-        get("/add_new_team", (request, response) -> {
+        get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
