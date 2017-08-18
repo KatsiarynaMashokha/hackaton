@@ -75,7 +75,12 @@ public class MemberDaoTest {
 
     @Test
     public void deleteById() throws Exception {
-
+        Member testMember  = createMember();
+        Member testMemberTwo  = createMember();
+        memberDao.add(testMember);
+        memberDao.add(testMemberTwo);
+        memberDao.deleteById(testMember.getMemberId());
+        assertEquals(1, memberDao.currentMembersByTeams(testMember.getTeamId()).size());
     }
 
 }
