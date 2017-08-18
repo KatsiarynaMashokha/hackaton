@@ -4,9 +4,9 @@
     <p class="newTeamMember">Team name: {{currentTeam.teamName}}</p>
     <p class="newTeamMember">Team description: {{currentTeam.description}}</p>
 
-    {{#if currentTeam.attendees}}
+    {{#if currentMembers}}
         <p class="newTeamMember">Members:</p>
-        {{#each currentTeam.attendees}}
+        {{#each currentMembers}}
             <ul>
                 <li>Name: {{name}}<br>Age: {{age}}</li>
             </ul>
@@ -19,8 +19,8 @@
         <p class="newTeamMember"No team members yet!></p>
     {{/if}}
     <div class="editInfo">
-       <a href="/teams/{{currentTeam.id}}/add_member"><button class="astext">Add a new team member</button></a>
-        <a href="/teams/{{currentTeam.id}}/edit"><button class="astext">Click here to edit team info</button></a>
+       <a href="/teams/{{currentTeam.id}}/members/new"><button class="astext">Add a new team member</button></a>
+        <a href="/teams/{{currentTeam.id}}/update"><button class="astext">Click here to edit team info</button></a>
     </div>
         <hr>
 {{/partial}}

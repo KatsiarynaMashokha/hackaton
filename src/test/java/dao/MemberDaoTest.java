@@ -36,7 +36,7 @@ public class MemberDaoTest {
 
     @Test
     public void add() throws Exception {
-        Member testMember  = createMember();
+        Member testMember = createMember();
         memberDao.add(testMember);
         assertEquals(1, testMember.getMemberId());
         assertEquals(34, testMember.getTeamId());
@@ -44,8 +44,8 @@ public class MemberDaoTest {
 
     @Test
     public void currentMembersByTeams() throws Exception {
-        Member testMember  = createMember();
-        Member testMemberTwo  = createMember();
+        Member testMember = createMember();
+        Member testMemberTwo = createMember();
         memberDao.add(testMember);
         memberDao.add(testMemberTwo);
         assertEquals(2, memberDao.currentMembersByTeams(34).size());
@@ -53,8 +53,8 @@ public class MemberDaoTest {
 
     @Test
     public void findById() throws Exception {
-        Member testMember  = createMember();
-        Member testMemberTwo  = createMember();
+        Member testMember = createMember();
+        Member testMemberTwo = createMember();
         memberDao.add(testMember);
         memberDao.add(testMemberTwo);
         Member foundMember = memberDao.findById(testMember.getMemberId());
@@ -64,7 +64,7 @@ public class MemberDaoTest {
 
     @Test
     public void update() throws Exception {
-        Member testMember  = createMember();
+        Member testMember = createMember();
         memberDao.add(testMember);
         memberDao.update(testMember.getMemberId(), "Nick", 22);
         Member updatedMember = memberDao.findById(testMember.getMemberId());
@@ -75,12 +75,11 @@ public class MemberDaoTest {
 
     @Test
     public void deleteById() throws Exception {
-        Member testMember  = createMember();
-        Member testMemberTwo  = createMember();
+        Member testMember = createMember();
+        Member testMemberTwo = createMember();
         memberDao.add(testMember);
         memberDao.add(testMemberTwo);
         memberDao.deleteById(testMember.getMemberId());
         assertEquals(1, memberDao.currentMembersByTeams(testMember.getTeamId()).size());
     }
-
 }
