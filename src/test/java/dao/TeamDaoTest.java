@@ -65,6 +65,12 @@ public class TeamDaoTest {
 
     @Test
     public void deleteById() throws Exception {
+        Team testTeam = createTeam();
+        Team testTeamTwo = createTeam();
+        teamDao.add(testTeam);
+        teamDao.add(testTeamTwo);
+        teamDao.deleteById(testTeam.getId());
+        assertEquals(1, teamDao.allTeams().size());
 
     }
 
