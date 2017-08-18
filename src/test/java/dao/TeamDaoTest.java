@@ -46,6 +46,11 @@ public class TeamDaoTest {
 
     @Test
     public void allTeams() throws Exception {
+        Team testTeam = createTeam();
+        Team testTeamTwo = createTeam();
+        teamDao.add(testTeam);
+        teamDao.add(testTeamTwo);
+        assertEquals(2, teamDao.allTeams().size());
 
     }
 
