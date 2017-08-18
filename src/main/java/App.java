@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -133,7 +132,12 @@ public class App {
             return null;
         });
 
-
-
+        // delete current team
+        get("teams/:id/delete", (request, response) -> {
+            int teamId = Integer.parseInt(request.params("id"));
+            teamDao.deleteById(teamId);
+            response.redirect("/");
+            return null;
+        });
     }
 }
