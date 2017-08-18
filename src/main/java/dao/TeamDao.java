@@ -15,7 +15,7 @@ public interface TeamDao {
     List<Team> allTeams();
 
     // update an existing team
-    void update(int id, String newName);
+    void update(int id, String newName, String newDescription);
 
     // delete a single team
     void deleteById(int id);

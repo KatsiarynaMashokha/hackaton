@@ -44,7 +44,7 @@ public class Sql2oTeamDao implements TeamDao{
     }
 
     @Override
-    public void update(int id, String newName) {
+    public void update(int id, String newName, String newDescription) {
 
     }
 
