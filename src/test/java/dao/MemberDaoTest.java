@@ -53,7 +53,12 @@ public class MemberDaoTest {
 
     @Test
     public void findById() throws Exception {
-
+        Member testMember  = createMember();
+        Member testMemberTwo  = createMember();
+        memberDao.add(testMember);
+        memberDao.add(testMemberTwo);
+        Member foundMember = memberDao.findById(testMember.getMemberId());
+        assertEquals(testMember, foundMember);
     }
 
     @Test
