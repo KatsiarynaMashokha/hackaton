@@ -37,7 +37,7 @@ public class Sql2oMemberDao implements MemberDao {
     }
 
     @Override
-    public List<Member> currentMembers() {
+    public List<Member> currentMembersByTeams(int teamId) {
         return null;
     }
 

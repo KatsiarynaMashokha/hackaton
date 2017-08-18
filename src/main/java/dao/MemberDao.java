@@ -12,7 +12,7 @@ public interface MemberDao {
     void add(Member member);
 
     // show all members of the given team
-    List<Member> currentMembers();
+    List<Member> currentMembersByTeams(int teamId);
 
     // find a members by its id
     Member findById(int id);

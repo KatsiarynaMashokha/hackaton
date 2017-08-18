@@ -44,6 +44,12 @@ public class MemberDaoTest {
 
     @Test
     public void currentMembers() throws Exception {
+        Member testMember  = createMember();
+        Member testMemberTwo  = createMember();
+        memberDao.add(testMember);
+        memberDao.add(testMemberTwo);
+        assertEquals(2, memberDao.currentMembersByTeams(34).size());
+
 
     }
 
