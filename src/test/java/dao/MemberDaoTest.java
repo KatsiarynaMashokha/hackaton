@@ -64,7 +64,13 @@ public class MemberDaoTest {
 
     @Test
     public void update() throws Exception {
-
+        Member testMember  = createMember();
+        memberDao.add(testMember);
+        memberDao.update(testMember.getMemberId(), "Nick", 22);
+        Member updatedMember = memberDao.findById(testMember.getMemberId());
+        assertNotEquals(testMember, updatedMember);
+        assertEquals("Nick", updatedMember.getName());
+        assertEquals(22, updatedMember.getAge());
     }
 
     @Test
