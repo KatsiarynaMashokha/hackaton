@@ -59,6 +59,7 @@ public class MemberDaoTest {
         memberDao.add(testMemberTwo);
         Member foundMember = memberDao.findById(testMember.getMemberId());
         assertEquals(testMember, foundMember);
+        assertEquals(testMember.getMemberId(), foundMember.getMemberId());
     }
 
     @Test
