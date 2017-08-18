@@ -52,4 +52,9 @@ public class Sql2oTeamDao implements TeamDao{
     public void deleteById(int id) {
 
     }
+
+    @Override
+    public Team findById(int id) {
+        return null;
+    }
 }

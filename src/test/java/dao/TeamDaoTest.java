@@ -63,4 +63,16 @@ public class TeamDaoTest {
 
     }
 
+    @Test
+    public void findById() throws Exception {
+        Team testTeam = createTeam();
+        Team testTeamTwo = createTeam();
+        teamDao.add(testTeam);
+        teamDao.add(testTeamTwo);
+        Team foundTeam = teamDao.findById(testTeam.getId());
+        assertEquals(testTeam, foundTeam);
+        assertEquals("Eagles", foundTeam.getTeamName());
+        assertEquals("Second year harvard CS female students", foundTeam.getDescription());
+        assertEquals(testTeam.getId(), foundTeam.getId());
+    }
 }

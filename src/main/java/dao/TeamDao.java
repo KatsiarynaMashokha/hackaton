@@ -19,4 +19,7 @@ public interface TeamDao {
 
     // delete a single team
     void deleteById(int id);
+
+    // find a team by its id
+    Team findById(int id);
 }
