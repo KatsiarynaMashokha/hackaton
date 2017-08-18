@@ -1,7 +1,9 @@
 package dao;
 
 import models.Team;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import java.util.List;
 
@@ -17,12 +19,25 @@ public class Sql2oTeamDao implements TeamDao{
 
     @Override
     public void add(Team team) {
+        String sql = "INSERT INTO teams (teamName, description) VALUES (:teamName, :description)";
+        try (Connection conn = sql2o.open()) {
+            int id = (int) conn.createQuery(sql)
+                    .addParameter("teamName", team.getTeamName())
+                    .addParameter("description", team.getDescription())
+                    .addColumnMapping("TEAMNAME", "teamName")
+                    .addColumnMapping("DESCRIPTION", "description")
+                    .executeUpdate()
+                    .getKey();
+            team.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
 
     }
 
     @Override
     public List<Team> allTeams() {
-        return null;
+       return null;
     }
 
     @Override
