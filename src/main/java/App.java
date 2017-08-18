@@ -70,9 +70,12 @@ public class App {
 
         // process a new form when adding a new team member
         post("/teams/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
             String memberName = request.queryParams("memberName");
             int memberAge = Integer.parseInt(request.queryParams("memberAge"));
             int teamId = Integer.parseInt(request.params("id"));
+            Member newMember = new Member(memberName, memberAge, teamId);
+            model.put("currentMember", newMember);
             memberDao.add(new Member(memberName, memberAge, teamId));
             response.redirect("/teams/" + teamId + "/members");
             return null;
@@ -107,5 +110,30 @@ public class App {
             response.redirect("/teams/" + teamId + "/members");
             return new ModelAndView(model, "team-information.hbs");
         }, new HandlebarsTemplateEngine());
+
+        // show a form to update current team member information
+        get("/teams/:id/members/:memberId/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int memberId = Integer.parseInt(request.params("memberId"));
+            Member currentMember = memberDao.findById(memberId);
+            model.put("currentMember", currentMember);
+            return new ModelAndView(model, "update-member.hbs");
+            //memberDao.update(memberId, memberName, memberAge);
+        }, new HandlebarsTemplateEngine());
+
+        // process a form to update a team member information
+        post("/teams/:id/members/:memberId/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int teamId = Integer.parseInt(request.params("id"));
+            String memberName = request.queryParams("memberName");
+            int memberAge = Integer.parseInt(request.queryParams("memberAge"));
+            int memberId = Integer.parseInt(request.params("memberId"));
+            memberDao.update(memberId, memberName, memberAge);
+            response.redirect("/teams/" + teamId + "/members");
+            return null;
+        });
+
+
+
     }
 }
