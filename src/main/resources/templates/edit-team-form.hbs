@@ -1,9 +1,8 @@
-{{#partial "title"}}
-    Edit team information
+{{#partial "header"}}
+    <h3>Edit team information</h3>
 {{/partial}}
 
 {{#partial "content"}}
-    <h3>Enter new details</h3>
     <form action="/teams/{{currentTeam.id}}/update" method="post">
         <div class="form-group">
             <h4>Enter new team name:</h4>

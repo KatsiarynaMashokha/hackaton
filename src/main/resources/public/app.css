@@ -1,15 +1,13 @@
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  background: linear-gradient(#000000, #53346D);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-image: url("https://source.unsplash.com/collection/145103");
-
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background: linear-gradient(#000000, #53346D);
 }
 
 .jumbotron {
@@ -21,74 +19,100 @@ body {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
    }
 
- p {
-   color: white;
-   font-size: 25px;
-   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+p {
+    color: white;
+    font-size: 25px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
    }
 
-  .nav {
-   font-size: 18px;
-   text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-   margin-bottom: 25px;
+.nav {
+    font-size: 18px;
+    text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+    margin-bottom: 25px;
   }
 
-  .btn {
-   text-align:center;
-   margin-top: 60px;
+.btn {
+    text-align:center;
+    margin-top: 60px;
   }
 
-  h4, h3 {
-  color: white;
-  margin-bottom: 60px;
-  margin-top: 60px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+h4, h3 {
+    color: white;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   }
 
-  li, .newTeamMember {
-  color: white;
-  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-  font-size: 18px;
+li, .newTeamMember {
+    color: white;
+    text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+    font-size: 18px;
   }
 
-  a {
-  margin-right: 20px;
+a {
+    margin-right: 20px;
   }
 
-  .newTeamHeader {
-  margin-bottom: 60px;
-  margin-top: 30px;
+.newTeamHeader {
+    margin-bottom: 60px;
+    margin-top: 30px;
   }
 
-  .editInfo {
-  margin-top: 20px;
+.editInfo {
+    margin-top: 20px;
   }
 
-  hr {
-  margin-bottom: 20px;
-  margin-top: 20px;
+hr {
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
-  #removeButton {
-   margin-bottom: 20px;
+#removeButton {
+    margin-bottom: 20px;
   }
 
 .btn:hover {
-     -webkit-transform: scale(1.1);
-     -moz-transform: scale(1.1);
-     -o-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
  }
 .btn {
-     -webkit-transform: scale(0.8);
-     -moz-transform: scale(0.8);
-     -o-transform: scale(0.8);
-     -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-     -o-transition-duration: 0.5s;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
  }
 
- .viewDeleteButtons {
+.viewDeleteButtons {
     margin-top: -50px;
  }
 
+.nav-tabs {
+    border-bottom: 0px;
+}
 
+.container .jumbotron{
+    border-radius: 0px;
+}
+
+.dropdown-menu li a:hover{
+    background: #428bca;
+}
+
+li a {
+    margin-right: 1px;
+    margin-left: 1px;
+ }
+
+.dropdown-menu li {
+    margin-top: -3px;
+    margin-bottom: -3px
+ }
+
+.icons:hover, .dropdown:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
