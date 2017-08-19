@@ -1,14 +1,25 @@
+{{#partial "header"}}
+    <h1>Welcome to Hackaton Page</h1>
+{{/partial}}
+
 {{#partial "content"}}
-
-    <div class="jumbotron">Hackaton Page</div>
-
     {{#if teams}}
         <h3>Here is the list of registered teams:</h3>
         {{#each teams}}
             <p class="newTeamMember">Team name: {{teamName}}</p>
             <p class="newTeamMember">Team description: {{description}}</p>
-            <a href="/teams/{{id}}/members">See team information</a>
-            <a href="/teams/{{id}}/delete">Delete this team</a>
+            <div class="viewDeleteButtons">
+                <div class="row">
+                    <a href="/teams/{{id}}/members" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                        <span><strong>View team info</strong></span>
+                    </a>
+                    <a href="/teams/{{id}}/delete" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span><strong>Delete team</strong></span>
+                    </a>
+                </div>
+            </div>
             <hr>
         {{/each}}
     {{else}}

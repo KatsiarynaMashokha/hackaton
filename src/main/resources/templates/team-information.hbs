@@ -1,3 +1,7 @@
+{{#partial "header"}}
+    <h2>Details page</h2>
+{{/partial}}
+
 {{#partial "content"}}
 
     <h3>Team details:</h3>
@@ -10,18 +14,34 @@
             <ul>
                 <li>Name: {{name}}<br>Age: {{age}}</li>
             </ul>
-            <div id="removeButton">
-                <a href="/teams/{{currentTeam.id}}/members/{{memberId}}/delete"><button class="astext">Click here to remove this team member</button></a>
-                <a href="/teams/{{currentTeam.id}}/members/{{memberId}}/update"><button class="astext">Click here to edit this team member</button></a>
+            <div class="viewDeleteButtons">
+                <div class="row">
+                    <a href="/teams/{{currentTeam.id}}/members/{{memberId}}/update" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit team member</strong></span>
+                    </a>
+                    <a href="/teams/{{currentTeam.id}}/members/{{memberId}}/delete" class="btn btn-primary a-btn-slide-text">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <span><strong>Remove team member</strong></span>
+                    </a>
+                </div>
             </div>
         {{/each}}
         <hr>
     {{else}}
         <p class="newTeamMember"No team members yet!></p>
     {{/if}}
-    <div class="editInfo">
-       <a href="/teams/{{currentTeam.id}}/members/new"><button class="astext">Add a new team member</button></a>
-        <a href="/teams/{{currentTeam.id}}/update"><button class="astext">Click here to edit team info</button></a>
+    <div class="viewDeleteButtons">
+        <div class="row">
+            <a href="/teams/{{currentTeam.id}}/members/new" class="btn btn-primary a-btn-slide-text">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <span><strong>Add new member</strong></span>
+            </a>
+            <a href="/teams/{{currentTeam.id}}/update" class="btn btn-primary a-btn-slide-text">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                <span><strong>Edit team info</strong></span>
+            </a>
+        </div>
     </div>
         <hr>
 {{/partial}}

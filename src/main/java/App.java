@@ -33,6 +33,8 @@ public class App {
         // show a form for adding a new team
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            List<Team> allTeams = teamDao.allTeams();
+            model.put("teams", allTeams);
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -52,7 +54,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int teamId = Integer.parseInt(request.params("id"));
             Team currentTeam = teamDao.findById(teamId);
-            //request.session().attribute("searchTeam", currentTeam); // new
+            List<Team> allTeams = teamDao.allTeams();
+            model.put("teams", allTeams);
             model.put("currentTeam", currentTeam);
             model.put("currentMembers", memberDao.currentMembersByTeams(teamId));
             return new ModelAndView(model, "team-information.hbs");
@@ -63,6 +66,8 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int teamId = Integer.parseInt(request.params("id"));
             Team currentTeam = teamDao.findById(teamId);
+            List<Team> allTeams = teamDao.allTeams();
+            model.put("teams", allTeams);
             model.put("currentTeam", currentTeam);
             return new ModelAndView(model, "add-team-members.hbs");
         }, new HandlebarsTemplateEngine());
@@ -86,6 +91,8 @@ public class App {
             int teamId = Integer.parseInt(request.params("id"));
             Team currentTeam = teamDao.findById(teamId);
             model.put("currentTeam", currentTeam);
+            List<Team> allTeams = teamDao.allTeams();
+            model.put("teams", allTeams);
             return new ModelAndView(model, "edit-team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -115,9 +122,10 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int memberId = Integer.parseInt(request.params("memberId"));
             Member currentMember = memberDao.findById(memberId);
+            List<Team> allTeams = teamDao.allTeams();
+            model.put("teams", allTeams);
             model.put("currentMember", currentMember);
             return new ModelAndView(model, "update-member.hbs");
-            //memberDao.update(memberId, memberName, memberAge);
         }, new HandlebarsTemplateEngine());
 
         // process a form to update a team member information
